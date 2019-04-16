@@ -13,6 +13,9 @@ import java.util.List;
 
 public class SpaceInvadersGame extends Game {
   private static final int PLAYER_BULLETS_MAX = 1;
+  private static final int TURN_TIMER = 40;
+  private static final int STARS_COUNT = 8;
+  private static final int TEXT_SIZE = 28;
   private List<Star> stars;
   private List<Bullet> enemyBullets;
   private List<Bullet> playerBullets;
@@ -32,7 +35,7 @@ public class SpaceInvadersGame extends Game {
 	enemyFleet = new EnemyFleet();
 	enemyBullets = new ArrayList<>();
 	playerBullets = new ArrayList<>();
-	setTurnTimer(40);
+	setTurnTimer(TURN_TIMER);
 	isGameStopped = false;
 	animationsCount = 0;
 	drawScene();
@@ -63,7 +66,7 @@ public class SpaceInvadersGame extends Game {
 
   private void createStars() {
 	stars = new ArrayList<>();
-	for (int i = 0; i < 8; i++) {
+	for (int i = 0; i < STARS_COUNT; i++) {
 	  stars.add(new Star(getRandomNumber(WIDTH), getRandomNumber(HEIGHT)));
 	}
   }
@@ -72,9 +75,9 @@ public class SpaceInvadersGame extends Game {
 	isGameStopped = true;
 	stopTurnTimer();
 	if (isWin) {
-	  showMessageDialog(Color.WHITE, "YOU WIN!!!", Color.GREEN, 28);
+	  showMessageDialog(Color.WHITE, "YOU WIN!!!", Color.GREEN, TEXT_SIZE);
 	} else {
-	  showMessageDialog(Color.WHITE, "YOU LOOSE!!!", Color.RED, 28);
+	  showMessageDialog(Color.WHITE, "YOU LOOSE!!!", Color.RED, TEXT_SIZE);
 	}
   }
 
