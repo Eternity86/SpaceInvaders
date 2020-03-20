@@ -1,4 +1,4 @@
-package com.aleks.game.spaceinvaders;
+package ru.eternity074.game.spaceinvaders;
 
 public enum Direction {
   UP,
